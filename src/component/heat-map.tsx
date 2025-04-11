@@ -56,11 +56,11 @@ export default function HeatMap() {
             heatmapRef.current = heatmap;
 
             const points = [];
-            const max = 100;
-            let len = 100;
+            const max = 10; // max value for heatmap
+            let len = 50; // updated length for points
 
             while (len--) {
-                const val = Math.floor(Math.random() * 100);
+                const val = Math.floor(Math.random() * 20);
                 const point = {
                     x: Math.floor(Math.random() * width),
                     y: Math.floor(Math.random() * height),
