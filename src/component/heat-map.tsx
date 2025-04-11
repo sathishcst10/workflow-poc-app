@@ -1,9 +1,10 @@
+import { Heatmap } from "heatmap.js";
 import { useEffect, useRef, useState } from "react";
 
 export default function HeatMap() {
-    const containerRef = useRef(null);
+    const containerRef = useRef<HTMLDivElement>(null);
     const imageRef = useRef(null);
-    const heatmapRef = useRef(null);
+    const heatmapRef = useRef<Heatmap<"value", "x", "y"> | null>(null);
 
     const [ready, setReady] = useState({
         scriptLoaded: false,
@@ -69,7 +70,11 @@ export default function HeatMap() {
                 points.push(point);
             }
 
-            heatmap.setData({ max, data: points });
+            heatmap.setData({
+                max, 
+                data: points,
+                min: 0
+            });
             console.log("✅ Heatmap rendered");
         };
 
