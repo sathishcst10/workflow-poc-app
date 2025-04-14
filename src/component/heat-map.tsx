@@ -1,7 +1,7 @@
 import { Heatmap } from "heatmap.js";
 import { useEffect, useRef, useState } from "react";
 
-export default function HeatMap() {
+export function HeatMap() {
     const containerRef = useRef<HTMLDivElement>(null);
     const imageRef = useRef(null);
     const heatmapRef = useRef<Heatmap<"value", "x", "y"> | null>(null);
